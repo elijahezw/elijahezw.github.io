@@ -9,12 +9,12 @@
   </head>
   
   <body>
-    <h1>Granada High Tutorial</h1>
+    <h1>ELIJAH. v1. </h1>
     <p>Processing demo</p>
     
     <script type="text/processing">
     
-      Ball[] ball;
+          Ball[] ball;
 
       void setup(){
         size(700, 600);
@@ -29,9 +29,9 @@
 
       void draw(){
           background(155,0,0);
-            for(int i = 0; i < ball.length; i++){
-                ball[i].display();
-            }
+            //for(int i = 0; i < ball.length; i++){
+                //ball[i].display();
+            //}
 
       }
       class Ball{
@@ -55,7 +55,7 @@
               d = random(30) + 15;
           }
 
-          void display(){
+          /**void display(){
               fill(r,g,b,o);
               ellipse(x,y,d,d);
               x += Vx;
@@ -66,7 +66,7 @@
               if(y > height || y < 0){
                   Vy *= -1;
               }
-          }
+          }*/
     }
 
 
