@@ -9,149 +9,24 @@
   </head>
   
   <body>
-    <h1>ELIJAH. v2.2 </h1>
-    <p>Processing demo</p>
+    <h1>Visulazing Time </h1>
+    <p>Elijah Ezralow -- Mar 21</p>
     
-    <script type="text/processing">    
-      
-          void setup(){
-        size(740, 640);
-        frameRate(4);
-        background(#ffffff);
-      } 
-
-      void draw(){
-
-        int count = 0;
-
-        if(count < 25){
-          for(int i = 0; i < 6; i++){
-             for(int j = 0; j < 5; j++){
-  
-                 int sub_width = 640 / 6;
-                 int sub_height = 640 / 6;
-  
-                   if(count < 21){
-                      fill (#4FBAC0 + count*3);
-                      stroke(#FFFFFF);
-                      strokeWeight(4.0);
-                      rect(sub_width * i +50, sub_height * j +50, sub_width, sub_height);
-                }
-  
-                   if(count > 20){
-                       fill (#EB2F89 + count*4);
-                       rect(sub_width * i +50, sub_height * j +50, sub_width, sub_height);
-                   } 
-  
-                   count++;        
-               }
-  
-             }
-          }
-      }
-      
-     
-    </script>
-    <canvas id="sketch" style="border: 1px solid black;"></canvas>
+    <video width="500px" height="500px"
+           controls="controls"/>
     
-    <script type="text/processing">
-     
-   
-      void setup(){
-        size(740, 640);
-        frameRate(4);
-        background(#ffffff);
-      } 
-
-      void draw(){
-        String binary = binary(frameCount);
-        println(binary);
-
-        int count = 0;
-
-        if(count < 25){
-          for(int i = 0; i < 6; i++){
-             for(int j = 0; j < 5; j++){
-  
-                 int sub_width = 640 / 6;
-                 int sub_height = 640 / 6;
-  
-                   if(count < 21){
-                      fill (#4FBAC0 + count*3);
-                      stroke(#FFFFFF);
-                      strokeWeight(4.0);
-                      rect(sub_width * i +50, sub_height * j +50, sub_width, sub_height);
-                }
-  
-                   if(count > 20){
-                       fill (#EB2F89 + count*4);
-                       rect(sub_width * i +50, sub_height * j +50, sub_width, sub_height);
-                   } 
-  
-                   count++;        
-               }
-  
-             }
-          }
-      }
-      
-      
-     
-     </script>
-     <canvas id="sketch" style="border: 1px solid black;"></canvas>
+      <source src="no1.mp4"
+           type="video/mpr">
     
-    <script type="text/processing">
+    </video> 
+  
+  <video width="500px" height="500px"
+           controls="controls"/>
     
-      
-      
-      void setup(){
-        size(740, 640);
-        frameRate(4);
-        background(#ffffff);
-      } 
-
-      void draw(){
-        String binary = binary(frameCount);
-        println(binary);
-        char[] grid = new char[binary.length()];
-        
-        for(int c = 0; c < binary.length(); c++){
-           grid[c] = binary.charAt(c);
-        }
-
-       // grid = reverse(grid);
-
-        int count = 0;
-
-        if(count < 25){
-          for(int i = 0; i < 6; i++){
-             for(int j = 0; j < 5; j++){
-  
-                 int sub_width = 640 / 6;
-                 int sub_height = 640 / 6;
-  
-                   if(grid[count] == '1'){
-                      fill (#4FBAC0 + count*3);
-                      stroke(#FFFFFF);
-                      strokeWeight(4.0);
-                      rect(sub_width * i +50, sub_height * j +50, sub_width, sub_height);
-                }
-  
-                   if(grid[count] == '0'){
-                       fill (#EB2F89 + count*4);
-                       rect(sub_width * i +50, sub_height * j +50, sub_width, sub_height);
-                   } 
-  
-                   count++;        
-               }
-  
-             }
-          }
-      }
-
-
-     </script>
-     <canvas id="sketch" style="border: 1px solid black;"></canvas>
+      <source src="no2.mp4"
+           type="video/mpr">
+    
+    </video> 
     
   </body>
   
