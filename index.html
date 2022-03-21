@@ -14,6 +14,85 @@
     
     <script type="text/processing">
     
+    //int count = 0;
+//float list = new [1, 2, 3];
+    // int j = 0;
+    
+  
+void setup() {
+  size(740, 640);
+  frameRate(4);
+  background(#ffffff);
+} 
+
+//[100010000101001001]
+//[010100100101001010]
+
+void draw() {
+  // Make binary string from count --> then create grid list
+  String binary = binary(frameCount);
+  //String binary = binary(2000000000);
+  //HashMap<String,Integer> hm = new HashMap<String, Integer>();
+  
+  //println(frameCount);
+  
+  //itearte binary string and save to grid as chars
+  char[] grid = new char[binary.length()];
+  for (int c = 0; c < binary.length(); c++) {
+     grid[c] = binary.charAt(c);
+  }
+  
+  grid = reverse(grid);
+
+  //initialize count 
+  int count = 0;
+  println ("new grid");
+  
+  while (count < 25) {
+  for (int i = 0; i < 6; i++) {
+     for (int j = 0; j < 5; j++) {
+       
+         int sub_width = 640 / 6;
+         int sub_height = 640 / 6;
+           
+           if (grid[count] == '1') {
+              fill (#4FBAC0 + count*3);
+              stroke(#FFFFFF);
+              strokeWeight(4.0);
+              //strokeJoin(ROUND);
+              square(sub_width * i +50, sub_height * j +50, sub_width);
+        }
+           
+           if (grid[count] == '0') {
+               fill (#EB2F89 + count*4);
+               square(sub_width * i +50, sub_height * j +50, sub_width);
+           } 
+            
+           count++;        
+       }
+
+     }
+  }
+}
+
+
+
+
+  
+  //int grid[] = new int[4];
+ /// grid[0] = 0;
+ // grid[1] = 0;
+ // grid[2] = 0;
+ // grid[3] = 0;
+  
+ // grid[int(change)] = 100;
+ // hm.put(int(change), 100);
+  ///+++++//Can i refer to and index number in a hexmap?//+++++
+
+
+//NEED A HASH... not reapeated because it is derived from frame count
+// sooo has must be linked to pattern to verify it's uniqness
+// GOAL uniqness without feeling random*/
 
     </script>
     <canvas id="sketch" style="border: 1px solid black;"></canvas>
