@@ -9,16 +9,18 @@
   </head>
   
   <body>
-    <h1>ELIJAH. v1. </h1>
+    <h1>ELIJAH. v2. </h1>
     <p>Processing demo</p>
     
     <script type="text/processing">
     
-          Ball[] ball;
+            
 
       void setup(){
+        Ball[] ball;
         size(700, 600);
         frameRate(100);
+        print("a");
         ball = new Ball[100];
         for(int i = 0; i < ball.length; i++){
             ball[i] = new Ball();
@@ -27,14 +29,13 @@
 
 
 
-      void draw(){
-          background(155,0,0);
-          println("no");
+     void draw(){
+          background(#230854);
             //for(int i = 0; i < ball.length; i++){
                 //ball[i].display();
-            //}
+            }
 
-      }
+     // }
       class Ball{
 
           float x;
@@ -74,7 +75,7 @@
     </script>
     <canvas id="sketch" style="border: 1px solid black;"></canvas>
     
-     <script type="text/processing">
+    <script type="text/processing">
      
            
       
