@@ -9,70 +9,11 @@
   </head>
   
   <body>
-    <h1>ELIJAH. v2.1 </h1>
+    <h1>ELIJAH. v2.2 </h1>
     <p>Processing demo</p>
     
     <script type="text/processing">
-    
-            
-
-           
-
-      void setup(){
-        Ball[] ball;
-        size(700, 600);
-        frameRate(100);
-        println("YES");
-        
-        ball = new Ball[100];
-        for(int i = 0; i < ball.length; i++){
-            ball[i] = new Ball();
-        
-        }
-      }
-
-
-
-     void draw(){
-       char c = 1;
-          background(#568e65);
-       if(c == 1){
-           background(#8637ab);
-          }
-   
-            }
-
-     // }
-      class Ball{
-
-          float x;
-          float y;
-          float Vx;
-          float Vy;
-          float r,g,b,o;
-          float d;
-
-          Ball(){
-              x = random(width);
-              y = random(height);
-              Vx = random(-5,5);
-              Vy = random(-5,5);
-              r = random(255);
-              g = random(255);
-              b = random(255);
-              o = random(255);
-              d = random(30) + 15;
-          }
-
-      }
-
-
-    </script>
-    <canvas id="sketch" style="border: 1px solid black;"></canvas>
-    
-    <script type="text/processing">
-     
-      
+          
       
       void setup(){
         size(740, 640);
@@ -81,77 +22,102 @@
       } 
 
       void draw(){
-        String binary = binary(frameCount);
-        char[] grid = new char[binary.length()];
         
-        for(int c = 0; c < binary.length(); c++){
-           grid[c] = binary.charAt(c);
-        }
+      
+      void setup(){
+        size(740, 640);
+        frameRate(4);
+        background(#ffffff);
+      } 
 
-        grid = reverse(grid);
+      void draw(){
 
-        int count = 0;
-
-        if(count < 25){
           for(int i = 0; i < 6; i++){
              for(int j = 0; j < 5; j++){
   
                  int sub_width = 640 / 6;
                  int sub_height = 640 / 6;
   
-                   if(grid[count] == '1'){
-                      fill (#4FBAC0 + count*3);
+                      fill (#4FBAC0);
                       stroke(#FFFFFF);
                       strokeWeight(4.0);
                       square(sub_width * i +50, sub_height * j +50, sub_width);
-                }
-  
-                   if(grid[count] == '0'){
-                       fill (#EB2F89 + count*4);
-                       square(sub_width * i +50, sub_height * j +50, sub_width);
-                   } 
-  
-                   count++;        
-               }
   
              }
           }
       }
+     
+
+
+    </script>
+    <canvas id="sketch" style="border: 1px solid black;"></canvas>
+    
+    <script type="text/processing">
+     
+           
+      
+      void setup(){
+        size(740, 640);
+        frameRate(4);
+        background(#ffffff);
+      } 
+
+      void draw(){
+
+          for(int i = 0; i < 6; i++){
+             for(int j = 0; j < 5; j++){
+  
+                 int sub_width = 640 / 6;
+                 int sub_height = 640 / 6;
+  
+                      fill (#4FBAC0);
+                      stroke(#FFFFFF);
+                      strokeWeight(4.0);
+                      //square(sub_width * i +50, sub_height * j +50, sub_width);
+                      rect(sub_width * i +50, sub_height * j +50, sub_width, sub_height);
+  
+             }
+          }
+      }
+      
      
      </script>
      <canvas id="sketch" style="border: 1px solid black;"></canvas>
     
     <script type="text/processing">
     
-          /**
-       * Pie Chart  
-       * 
-       * Uses the arc() function to generate a pie chart from the data
-       * stored in an array. 
-       */
+/**
+ * Shape Primitives. 
+ * 
+ * The basic shape primitive functions are triangle(),
+ * rect(), quad(), ellipse(), and arc(). Squares are made
+ * with rect() and circles are made with ellipse(). Each 
+ * of these functions requires a number of parameters to 
+ * determine the shape's position and size. 
+ */
 
-      int[] angles = { 30, 10, 45, 35, 60, 38, 75, 67 };
+size(640, 360);
+background(0);
+noStroke();
 
-      void setup() {
-        size(640, 360);
-        noStroke();
-        noLoop();  // Run once and stop
-      }
+fill(204);
+triangle(18, 18, 18, 360, 81, 360);
 
-      void draw() {
-        background(100);
-        pieChart(300, angles);
-      }
+fill(102);
+rect(81, 81, 63, 63);
 
-      void pieChart(float diameter, int[] data) {
-        float lastAngle = 0;
-        for (int i = 0; i < data.length; i++) {
-          float gray = map(i, 0, data.length, 0, 255);
-          fill(gray);
-          arc(width/2, height/2, diameter, diameter, lastAngle, lastAngle+radians(data[i]));
-          lastAngle += radians(data[i]);
-        }
-      }
+fill(204);
+quad(189, 18, 216, 18, 216, 360, 144, 360);
+
+fill(255);
+ellipse(252, 144, 72, 72);
+
+fill(204);
+triangle(288, 18, 351, 360, 288, 360); 
+
+fill(255);
+arc(479, 300, 280, 280, PI, TWO_PI);
+
 
      </script>
      <canvas id="sketch" style="border: 1px solid black;"></canvas>
