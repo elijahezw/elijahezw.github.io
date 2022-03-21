@@ -14,21 +14,13 @@
     
     <script type="text/processing">    
       
-      void setup(){
+          void setup(){
         size(740, 640);
         frameRate(4);
         background(#ffffff);
       } 
 
       void draw(){
-        String binary = binary(frameCount);
-        char[] grid = new char[binary.length()];
-        
-        for(int c = 0; c < binary.length(); c++){
-           grid[c] = binary.charAt(c);
-        }
-
-        grid = reverse(grid);
 
         int count = 0;
 
@@ -39,14 +31,14 @@
                  int sub_width = 640 / 6;
                  int sub_height = 640 / 6;
   
-                   if(grid[count] == '1'){
+                   if(count < 21){
                       fill (#4FBAC0 + count*3);
                       stroke(#FFFFFF);
                       strokeWeight(4.0);
                       rect(sub_width * i +50, sub_height * j +50, sub_width, sub_height);
                 }
   
-                   if(grid[count] == '0'){
+                   if(count > 20){
                        fill (#EB2F89 + count*4);
                        rect(sub_width * i +50, sub_height * j +50, sub_width, sub_height);
                    } 
@@ -57,6 +49,7 @@
              }
           }
       }
+      
      
     </script>
     <canvas id="sketch" style="border: 1px solid black;"></canvas>
@@ -95,37 +88,23 @@
     
     <script type="text/processing">
     
-/**
- * Shape Primitives. 
- * 
- * The basic shape primitive functions are triangle(),
- * rect(), quad(), ellipse(), and arc(). Squares are made
- * with rect() and circles are made with ellipse(). Each 
- * of these functions requires a number of parameters to 
- * determine the shape's position and size. 
- */
+BufferedReader reader;
+String line;
 
-size(640, 360);
-background(0);
-noStroke();
+color canvas = #ffffff;
+   
+void setup() {
+  size(640, 640);
+  frameRate(10);
 
-fill(204);
-triangle(18, 18, 18, 360, 81, 360);
+}
 
-fill(102);
-rect(81, 81, 63, 63);
-
-fill(204);
-quad(189, 18, 216, 18, 216, 360, 144, 360);
-
-fill(255);
-ellipse(252, 144, 72, 72);
-
-fill(204);
-triangle(288, 18, 351, 360, 288, 360); 
-
-fill(255);
-arc(479, 300, 280, 280, PI, TWO_PI);
+void draw() {  
+  background(canvas);
+  reader = createReader("skycolor.txt");
+  println(reader);
+  
+}
 
 
      </script>
