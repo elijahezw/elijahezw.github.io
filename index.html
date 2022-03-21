@@ -56,7 +56,53 @@
     
     <script type="text/processing">
      
-           
+   
+      void setup(){
+        size(740, 640);
+        frameRate(4);
+        background(#ffffff);
+      } 
+
+      void draw(){
+        String binary = binary(frameCount);
+        println(binary);
+
+        int count = 0;
+
+        if(count < 25){
+          for(int i = 0; i < 6; i++){
+             for(int j = 0; j < 5; j++){
+  
+                 int sub_width = 640 / 6;
+                 int sub_height = 640 / 6;
+  
+                   if(count < 21){
+                      fill (#4FBAC0 + count*3);
+                      stroke(#FFFFFF);
+                      strokeWeight(4.0);
+                      rect(sub_width * i +50, sub_height * j +50, sub_width, sub_height);
+                }
+  
+                   if(count > 20){
+                       fill (#EB2F89 + count*4);
+                       rect(sub_width * i +50, sub_height * j +50, sub_width, sub_height);
+                   } 
+  
+                   count++;        
+               }
+  
+             }
+          }
+      }
+      
+      
+     
+     </script>
+     <canvas id="sketch" style="border: 1px solid black;"></canvas>
+    
+    <script type="text/processing">
+    
+      
       
       void setup(){
         size(740, 640);
@@ -65,46 +111,43 @@
       } 
 
       void draw(){
+        String binary = binary(frameCount);
+        println(binary);
+        char[] grid = new char[binary.length()];
+        
+        for(int c = 0; c < binary.length(); c++){
+           grid[c] = binary.charAt(c);
+        }
 
+       // grid = reverse(grid);
+
+        int count = 0;
+
+        if(count < 25){
           for(int i = 0; i < 6; i++){
              for(int j = 0; j < 5; j++){
   
                  int sub_width = 640 / 6;
                  int sub_height = 640 / 6;
   
-                      fill (#4FBAC0);
+                   if(grid[count] == '1'){
+                      fill (#4FBAC0 + count*3);
                       stroke(#FFFFFF);
                       strokeWeight(4.0);
-                      //square(sub_width * i +50, sub_height * j +50, sub_width);
                       rect(sub_width * i +50, sub_height * j +50, sub_width, sub_height);
+                }
+  
+                   if(grid[count] == '0'){
+                       fill (#EB2F89 + count*4);
+                       rect(sub_width * i +50, sub_height * j +50, sub_width, sub_height);
+                   } 
+  
+                   count++;        
+               }
   
              }
           }
       }
-      
-     
-     </script>
-     <canvas id="sketch" style="border: 1px solid black;"></canvas>
-    
-    <script type="text/processing">
-    
-BufferedReader reader;
-String line;
-
-color canvas = #ffffff;
-   
-void setup() {
-  size(640, 640);
-  frameRate(10);
-
-}
-
-void draw() {  
-  background(canvas);
-  reader = createReader("skycolor.txt");
-  println(reader);
-  
-}
 
 
      </script>
