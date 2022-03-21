@@ -14,50 +14,11 @@
     
     
     <script type="text/processing">
-
-      void setup() {
-        frameRate(4);      
+       void setup() {   
         size(740, 640);
         background(#000000);
-        
-        String binary = binary(frameCount);
-
-        char[] grid = new char[binary.length()];
-        for (int c = 0; c < binary.length(); c++) {
-           grid[c] = binary.charAt(c);
+        square(300, 300, 300);
         }
-
-        grid = reverse(grid);
-
-        int count = 0;
-        println ("new grid");
-
-        while (count < 25) {
-        for (int i = 0; i < 6; i++) {
-           for (int j = 0; j < 5; j++) {
-
-               int sub_width = 640 / 6;
-               int sub_height = 640 / 6;
-
-                 if (grid[count] == '1') {
-                    fill (#4FBAC0 + count*3);
-                    stroke(#FFFFFF);
-                    strokeWeight(4.0);
-                    square(sub_width * i +50, sub_height * j +50, sub_width);
-                  }
-
-                 if (grid[count] == '0') {
-                    fill (#EB2F89 + count*4);
-                    square(sub_width * i +50, sub_height * j +50, sub_width);
-                  } 
-
-                 count++;        
-               }
-            }
-         }
-      }
-        
-    
     </script>
     <canvas id="sketch" style="border: 1px solid black;"></canvas>
     
