@@ -15,16 +15,13 @@
     
     <script type="text/processing">
 
-void setup() {
-  frameRate(4);      
-  size(740, 640);
+      void setup() {
+        frameRate(4);      
+        size(740, 640);
         background(#000000);
         
-
-        // Make binary string from count --> then create grid list
         String binary = binary(frameCount);
 
-        //itearte binary string and save to grid as chars
         char[] grid = new char[binary.length()];
         for (int c = 0; c < binary.length(); c++) {
            grid[c] = binary.charAt(c);
@@ -32,7 +29,6 @@ void setup() {
 
         grid = reverse(grid);
 
-        //initialize count 
         int count = 0;
         println ("new grid");
 
@@ -47,20 +43,18 @@ void setup() {
                     fill (#4FBAC0 + count*3);
                     stroke(#FFFFFF);
                     strokeWeight(4.0);
-                    //strokeJoin(ROUND);
                     square(sub_width * i +50, sub_height * j +50, sub_width);
-              }
+                  }
 
                  if (grid[count] == '0') {
-                     fill (#EB2F89 + count*4);
-                     square(sub_width * i +50, sub_height * j +50, sub_width);
-                 } 
+                    fill (#EB2F89 + count*4);
+                    square(sub_width * i +50, sub_height * j +50, sub_width);
+                  } 
 
                  count++;        
-             }
-
-           }
-        }
+               }
+            }
+         }
       }
         
     
