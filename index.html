@@ -13,61 +13,55 @@
     <p>What is time? Elijah Ezralow</p>
     
     <script type="text/processing">
-    
-      Ball[] ball;
+   
+      void setup() {
+        size(740, 640);
+        frameRate(4);
+        background(#ffffff);
+      } 
 
-      void setup(){
-        size(700, 600);
-        frameRate(100);
-        ball = new Ball[100];
-        for(int i = 0; i < ball.length; i++){
-            ball[i] = new Ball();
+      void draw() {
+        // Make binary string from count --> then create grid list
+        String binary = binary(frameCount);
+
+        //itearte binary string and save to grid as chars
+        char[] grid = new char[binary.length()];
+        for (int c = 0; c < binary.length(); c++) {
+           grid[c] = binary.charAt(c);
+        }
+
+        grid = reverse(grid);
+
+        //initialize count 
+        int count = 0;
+        println ("new grid");
+
+        while (count < 25) {
+        for (int i = 0; i < 6; i++) {
+           for (int j = 0; j < 5; j++) {
+
+               int sub_width = 640 / 6;
+               int sub_height = 640 / 6;
+
+                 if (grid[count] == '1') {
+                    fill (#4FBAC0 + count*3);
+                    stroke(#FFFFFF);
+                    strokeWeight(4.0);
+                    //strokeJoin(ROUND);
+                    square(sub_width * i +50, sub_height * j +50, sub_width);
+              }
+
+                 if (grid[count] == '0') {
+                     fill (#EB2F89 + count*4);
+                     square(sub_width * i +50, sub_height * j +50, sub_width);
+                 } 
+
+                 count++;        
+             }
+
+           }
         }
       }
-
-
-
-      void draw(){
-          background(155,0,0);
-            for(int i = 0; i < ball.length; i++){
-                ball[i].display();
-            }
-
-      }
-      class Ball{
-
-          float x;
-          float y;
-          float Vx;
-          float Vy;
-          float r,g,b,o;
-          float d;
-
-          Ball(){
-              x = random(width);
-              y = random(height);
-              Vx = random(-5,5);
-              Vy = random(-5,5);
-              r = random(255);
-              g = random(255);
-              b = random(255);
-              o = random(255);
-              d = random(30) + 15;
-          }
-
-          void display(){
-              fill(r,g,b,o);
-              ellipse(x,y,d,d);
-              x += Vx;
-              y += Vy;
-              if(x > width || x < 0){
-                  Vx *= -1;
-              }
-              if(y > height || y < 0){
-                  Vy *= -1;
-              }
-          }
-    }
 
 
     </script>
