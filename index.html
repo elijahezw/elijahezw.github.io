@@ -5,7 +5,7 @@
   <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
       <title>Visual Time</title>
-      <script type="text/javascript" src="js/processing.js"></script>
+      <script type="text/javascript" src="js/p5.js"></script>
   </head>
   
   <body>
@@ -13,7 +13,9 @@
     <p>Elijah Ezralow -- Mar 21 -- Demo Version<br> Introduction </p>
 	<p>
 Time is experienced on a visual substrate. Visual change in the physical world makes time apparent rather than abstract. A look at the ebbing moon or lengthening daylight hours, and we see time through its spatial representation. Motion is this embodiment of time as the physical world moves. In this context, motion becomes a catalyst in which we can see time. These visualizations let us personify time in a more tangible way. I have created two timepieces to show how we as humans experience time through change and motion. They are constructed around a schema of different types of visualizations of time. The timepieces are meant to juxtapose each other; The first focuses on cycles and rhythm, the second on uniqueness and progression. The objective is to better understand different ways that time can be perceived visually. Each timepiece is inspired by ways to look at time in visual art.    	</p>
-    <video width="640px" height="360px"
+   
+	  
+	  <video width="640px" height="360px"
            controls="controls"/>
     
       <source src="no1.mp4"
@@ -41,7 +43,56 @@ The graduation of color to color on the timepiece in a relative way creates a rh
 	
 	 </video> 
 
-	<iframe src="https://editor.p5js.org/elijahezw/full/tv-T5L3sF"></iframe>
+	 <script type="text/processing">
+    
+function setup() {
+        createCanvas(740, 640);
+        frameRate(4);
+        background('#ffffff');
+      } 
+
+function draw() {
+        binary = frameCount.toString(2);     
+        print(binary);
+        let grid = [];
+        
+        for(let c = 0; c < 30; c++){
+          grid[c] = 0
+          grid[c] = binary.charAt(c);
+        }
+
+       grid = reverse(grid);
+
+        count = 0;
+
+        if(count < 30){
+          for(let i = 0; i < 6; i++){
+             for(let j = 0; j < 5; j++){
+  
+                 sub_width = 640 / 6;
+                 sub_height = 640 / 6;
+  
+                   if(grid[count] == 1){
+                      fill('#4FBAC0' + count*3);
+                      stroke('#FFFFFF');
+                      strokeWeight(4.0);
+                      rect(sub_width * i +50, sub_height * j +50, sub_width, sub_height);
+                }
+  
+                   if(grid[count] == 0){
+                       fill ('#EB2F89' + count*4);
+                       rect(sub_width * i +50, sub_height * j +50, sub_width, sub_height);
+                   } 
+  
+                   count++;        
+               }
+  
+             }
+          }
+      }
+
+    </script>
+    <canvas id="sketch" style="border: 1px solid black;"></canvas>
 	
    
 <p>**click button above to play demo video**</p>
