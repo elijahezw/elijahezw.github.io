@@ -1,22 +1,11 @@
-
-
-//BufferedReader reader;
-//String line;
-
 let canvas = '#ffffff';
-
 let arcs = 48
-
 let i = 0;
-
-//let col = [];
-
 let col;
 
 function preload() {
     col = loadStrings('skycolor.txt');
 }
-
 
 function setup() {
   createCanvas(640, 640);
@@ -27,22 +16,17 @@ function setup() {
 function draw() {  
   background(canvas);
   
-  //for (int l = 0; l < col.length; l++) {
-  //col[l] = line; 
-
  if (i < col.length) {
       let subwidth = (TWO_PI/arcs);
         
   for (var j = 0; j <= i; j++) {
       let st = col[j];
       print(st);
-      //let hi = unhex(st);
       noStroke();
       fill(st);
       arc (320, 320, 400, 400, subwidth * j, 
            subwidth * j + subwidth); 
   
-
       let bright = brightness(st);
       fill(canvas);
       noStroke();
