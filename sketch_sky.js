@@ -8,9 +8,9 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(640, 640);
+  let canvas = createCanvas(640, 640);
   frameRate(1);
-  
+  canvas.parent('sky-time');
 }
 
 function draw() {  
