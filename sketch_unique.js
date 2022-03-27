@@ -1,9 +1,10 @@
 
 
 function setup() {
-        createCanvas(740, 640);
+        let canvas = createCanvas(740, 640);
         frameRate(4);
         background('#ffffff');
+        canvas.parent('grid-time');
       } 
 
 function draw() {
