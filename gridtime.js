@@ -3,7 +3,7 @@ function setup() {
         let canvas = createCanvas(740, 640);
         frameRate(4);
         background('#ffffff');
-        // canvas.parent('grid-time');      
+        canvas.parent('grid-time');      
       } 
 
 
