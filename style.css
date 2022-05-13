@@ -5,3 +5,6 @@ html, body {
 canvas {
   display: block;
 }
+#grid-time {
+  margin-bottom: 100;
+}
