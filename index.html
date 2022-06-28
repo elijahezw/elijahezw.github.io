@@ -11,22 +11,52 @@
   padding: 20px;
   font-family: helvetica
 } 
+        
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  padding: 10px;
+}
+        
+.grid-item {
+  padding: 20px;
+  text-align: left;
+}
+
 </style>
   </head>
   
-  
   <body>
+      
+    <div class="grid-container">
+      <div class="grid-item"> 
+           <div id="grid-time"></div>
+        </div>  
+      <div class="grid-item">
+        <div id="sky-time"></div>
+        </div>
+        
+      <div class="grid-item">5</div>
+      <div class="grid-item">6</div>  
+    
+      </div>
+    
       <div class="container">
+          
          <div class="para">
             <h2 style= "color: #000000"> London</h2>
             <p>London is the capital of England.</p>
             </div>
+          
           <div id="grid-time"></div>
+          
              <div class="para">
                 <h2 style= "color: #000000">London</h2>
                 <p>London is the capital of England.</p>
                 </div> 
+          
           <div id="sky-time"></div>
+          
               <div class="para">
                 <h2 style= "color: #000000">London</h2>
                 <p>London is the capital of England.</p>
